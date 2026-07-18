@@ -1,0 +1,25 @@
+{
+  "name": "Loyalty Bro",
+  "short_name": "Loyalty Bro",
+  "description": "Track every loyalty membership you've signed up for, so benefits stop going to waste.",
+  "start_url": "/loyalty-bro-app/",
+  "scope": "/loyalty-bro-app/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#3c87f7",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/loyalty-bro-app/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/loyalty-bro-app/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
