@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { AuthOnlyRoute } from '@/components/auth-only-route';
@@ -20,7 +20,8 @@ function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [checkEmail, setCheckEmail] = useState(false);
 
-  async function handleSignup() {
+  async function handleSignup(e: FormEvent) {
+    e.preventDefault();
     setError(null);
     setIsSubmitting(true);
     const { data, error: signUpError } = await supabase.auth.signUp({ email, password });
@@ -54,7 +55,10 @@ function SignupForm() {
   }
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-sm flex-col justify-center gap-3 p-6">
+    <form
+      className="mx-auto flex min-h-screen max-w-sm flex-col justify-center gap-3 p-6"
+      onSubmit={handleSignup}
+    >
       <h1 className="text-center text-3xl font-semibold">Loyalty Bro</h1>
       <h2 className="mb-4 text-center text-lg font-semibold">Sign up</h2>
 
@@ -62,6 +66,7 @@ function SignupForm() {
         className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
         placeholder="Email"
         type="email"
+        required
         autoCapitalize="none"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -70,6 +75,8 @@ function SignupForm() {
         className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
         placeholder="Password (min 6 characters)"
         type="password"
+        required
+        minLength={6}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
@@ -77,8 +84,8 @@ function SignupForm() {
       {error ? <p className="text-sm text-red-600">{error}</p> : null}
 
       <button
+        type="submit"
         className="mt-2 rounded-lg bg-primary py-3.5 font-semibold text-white disabled:opacity-60"
-        onClick={handleSignup}
         disabled={isSubmitting}
       >
         {isSubmitting ? 'Signing up…' : 'Sign up'}
@@ -87,6 +94,6 @@ function SignupForm() {
       <Link to="/login" className="mt-4 self-center text-sm text-gray-500 dark:text-gray-400">
         Already have an account? Log in
       </Link>
-    </div>
+    </form>
   );
 }
