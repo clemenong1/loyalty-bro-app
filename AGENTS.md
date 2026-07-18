@@ -1,3 +1,3 @@
-# Expo HAS CHANGED
+# Stack
 
-Read the exact versioned docs at https://docs.expo.dev/versions/v57.0.0/ before writing any code.
+This is a Vite + React + TypeScript PWA (no Expo, no React Native). Routing is React Router, styling is Tailwind CSS. Deployed to Netlify as a static SPA build (`npm run build` → `dist/`).
