@@ -6,6 +6,18 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["expo", "start", "--web"],
       "port": 8081
+    },
+    {
+      "name": "web-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "dist", "-l", "8082"],
+      "port": 8082
+    },
+    {
+      "name": "pages-test",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "/tmp/pages-test", "-l", "8083"],
+      "port": 8083
     }
   ]
 }

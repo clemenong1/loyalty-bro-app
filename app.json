@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "loyaltyBro",
+    "name": "Loyalty Bro",
     "slug": "loyaltyBro",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -20,7 +20,7 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "single",
+      "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -36,7 +36,8 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": true,
+      "baseUrl": "/loyalty-bro-app"
     }
   }
 }
