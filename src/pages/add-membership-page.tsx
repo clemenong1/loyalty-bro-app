@@ -61,12 +61,12 @@ export function AddMembershipPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 pt-14 pb-10">
-      <h1 className="mb-3 text-3xl font-semibold">Add membership</h1>
+      <h1 className="mb-4 font-script text-4xl text-primary">Add membership</h1>
 
       <div className="flex flex-col gap-2">
-        <span className="text-sm font-bold">Business name</span>
+        <span className="font-display text-sm font-bold text-ink dark:text-white">Business name</span>
         <input
-          className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+          className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
           placeholder="e.g. Blue Bottle Coffee"
           value={businessName}
           onChange={(e) => {
@@ -75,7 +75,7 @@ export function AddMembershipPage() {
           }}
         />
         {!selectedBusiness && suggestions && suggestions.length > 0 && (
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800">
+          <div className="rounded-xl border-2 border-ink/10 dark:border-white/15">
             {suggestions.map((b) => (
               <button
                 key={b.id}
@@ -88,7 +88,7 @@ export function AddMembershipPage() {
                 }}
               >
                 <span>{b.name}</span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
+                <span className="text-sm text-ink/50 dark:text-white/50">
                   {b.category === 'fnb' ? 'F&B' : 'Retail'}
                 </span>
               </button>
@@ -96,7 +96,7 @@ export function AddMembershipPage() {
           </div>
         )}
 
-        <span className="mt-2 text-sm font-bold">Category</span>
+        <span className="mt-2 font-display text-sm font-bold text-ink dark:text-white">Category</span>
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((c) => (
             <Pill
@@ -108,7 +108,7 @@ export function AddMembershipPage() {
           ))}
         </div>
 
-        <span className="mt-2 text-sm font-bold">Benefit</span>
+        <span className="mt-2 font-display text-sm font-bold text-ink dark:text-white">Benefit</span>
         <div className="flex flex-wrap gap-2">
           {BENEFIT_TYPES.map((b) => (
             <Pill
@@ -121,7 +121,7 @@ export function AddMembershipPage() {
         </div>
 
         <input
-          className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+          className="mt-2 rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
           placeholder="e.g. 10% off next purchase"
           value={benefitDescription}
           onChange={(e) => setBenefitDescription(e.target.value)}
@@ -129,9 +129,11 @@ export function AddMembershipPage() {
 
         {benefitType === 'next_purchase' && (
           <>
-            <span className="mt-2 text-sm font-bold">Redeemable by (optional)</span>
+            <span className="mt-2 font-display text-sm font-bold text-ink dark:text-white">
+              Redeemable by (optional)
+            </span>
             <input
-              className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+              className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
               placeholder="YYYY-MM-DD"
               value={redeemableBy}
               onChange={(e) => setRedeemableBy(e.target.value)}
@@ -139,10 +141,10 @@ export function AddMembershipPage() {
           </>
         )}
 
-        {error ? <p className="text-sm text-red-600">{error}</p> : null}
+        {error ? <p className="text-sm font-medium text-primary">{error}</p> : null}
 
         <button
-          className="mt-4 rounded-lg bg-primary py-3.5 text-center font-semibold text-white disabled:opacity-60"
+          className="mt-4 rounded-full bg-primary py-3.5 text-center font-display font-bold text-white shadow-md shadow-primary/30 transition hover:brightness-95 disabled:opacity-60"
           onClick={handleSubmit}
           disabled={createMembership.isPending}
         >
@@ -157,10 +159,8 @@ function Pill({ label, selected, onClick }: { label: string; selected: boolean; 
   return (
     <button
       type="button"
-      className={`rounded-2xl border px-3 py-1.5 text-sm ${
-        selected
-          ? 'border-primary bg-primary text-white'
-          : 'border-gray-300 text-inherit dark:border-gray-700'
+      className={`rounded-full px-4 py-2 text-sm font-bold transition ${
+        selected ? 'bg-primary text-white' : 'bg-ink text-white dark:bg-white/10'
       }`}
       onClick={onClick}
     >

@@ -5,7 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#3c87f7',
+        primary: '#E8483A',
+        ink: '#111111',
+      },
+      fontFamily: {
+        display: ['Poppins', 'system-ui', 'sans-serif'],
+        script: ['Caveat', 'cursive'],
       },
     },
   },

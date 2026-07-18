@@ -40,12 +40,14 @@ function SignupForm() {
   if (checkEmail) {
     return (
       <div className="mx-auto flex min-h-screen max-w-sm flex-col justify-center gap-3 p-6">
-        <h1 className="text-center text-3xl font-semibold">Check your email</h1>
-        <p className="mb-4 text-center">
+        <h1 className="text-center font-display text-2xl font-bold text-ink dark:text-white">
+          Check your email
+        </h1>
+        <p className="mb-4 text-center text-ink/70 dark:text-white/70">
           We sent a confirmation link to {email}. Confirm it, then log in.
         </p>
         <button
-          className="rounded-lg bg-primary py-3.5 font-semibold text-white"
+          className="rounded-full bg-primary py-3.5 font-display font-bold text-white shadow-md shadow-primary/30 transition hover:brightness-95"
           onClick={() => navigate('/login', { replace: true })}
         >
           Back to log in
@@ -59,11 +61,11 @@ function SignupForm() {
       className="mx-auto flex min-h-screen max-w-sm flex-col justify-center gap-3 p-6"
       onSubmit={handleSignup}
     >
-      <h1 className="text-center text-3xl font-semibold">Loyalty Bro</h1>
-      <h2 className="mb-4 text-center text-lg font-semibold">Sign up</h2>
+      <h1 className="text-center font-script text-6xl leading-tight text-primary">Loyalty Bro</h1>
+      <h2 className="mb-4 text-center font-display text-lg font-bold text-ink dark:text-white">Sign up</h2>
 
       <input
-        className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
         placeholder="Email"
         type="email"
         required
@@ -72,7 +74,7 @@ function SignupForm() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
-        className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
         placeholder="Password (min 6 characters)"
         type="password"
         required
@@ -81,18 +83,18 @@ function SignupForm() {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      {error ? <p className="text-sm text-red-600">{error}</p> : null}
+      {error ? <p className="text-sm font-medium text-primary">{error}</p> : null}
 
       <button
         type="submit"
-        className="mt-2 rounded-lg bg-primary py-3.5 font-semibold text-white disabled:opacity-60"
+        className="mt-2 rounded-full bg-primary py-3.5 font-display font-bold text-white shadow-md shadow-primary/30 transition hover:brightness-95 disabled:opacity-60"
         disabled={isSubmitting}
       >
         {isSubmitting ? 'Signing up…' : 'Sign up'}
       </button>
 
-      <Link to="/login" className="mt-4 self-center text-sm text-gray-500 dark:text-gray-400">
-        Already have an account? Log in
+      <Link to="/login" className="mt-4 self-center text-sm text-ink/60 dark:text-white/60">
+        Already have an account? <span className="font-semibold text-primary">Log in</span>
       </Link>
     </form>
   );

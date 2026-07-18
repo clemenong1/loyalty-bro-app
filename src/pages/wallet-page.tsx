@@ -18,32 +18,32 @@ export function WalletPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 pt-14">
       <div className="mb-4 flex items-center justify-between">
-        <h1 className="text-3xl font-semibold">Wallet</h1>
+        <h1 className="font-script text-4xl text-primary">Wallet</h1>
         <div className="flex items-center gap-4">
           <button
-            className="text-sm text-primary disabled:opacity-50"
+            className="text-sm font-semibold text-ink/60 disabled:opacity-50 dark:text-white/60"
             onClick={() => refetch()}
             disabled={isRefetching}
           >
             {isRefetching ? 'Refreshing…' : 'Refresh'}
           </button>
-          <button className="text-sm text-primary" onClick={() => supabase.auth.signOut()}>
+          <button className="text-sm font-semibold text-primary" onClick={() => supabase.auth.signOut()}>
             Log out
           </button>
         </div>
       </div>
 
       <input
-        className="mb-3 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+        className="mb-4 w-full rounded-xl border-2 border-ink/15 px-3 py-2.5 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
         placeholder="Search your memberships..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         autoCapitalize="none"
       />
 
-      <div className="flex flex-col gap-2.5 pb-6">
+      <div className="flex flex-col gap-3 pb-6">
         {!isLoading && filtered.length === 0 && (
-          <p className="mt-12 text-center text-gray-500 dark:text-gray-400">
+          <p className="mt-12 text-center text-ink/50 dark:text-white/50">
             No memberships yet. Add one from the Add tab.
           </p>
         )}
@@ -61,17 +61,19 @@ function MembershipCard({ membership }: { membership: MembershipWithDetails }) {
   return (
     <Link
       to={`/membership/${membership.id}`}
-      className="flex flex-col gap-1 rounded-lg border border-gray-200 p-3.5 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-900"
+      className="flex flex-col gap-1 rounded-2xl border-2 border-ink/10 p-4 transition hover:border-primary/40 dark:border-white/15 dark:hover:border-primary/50"
     >
       <div className="flex items-center justify-between">
-        <span className="text-sm font-bold">{membership.business.name}</span>
+        <span className="font-display text-sm font-bold text-ink dark:text-white">
+          {membership.business.name}
+        </span>
         <StatusBadge status={membership.status} />
       </div>
-      <span className="text-sm text-gray-500 dark:text-gray-400">
+      <span className="text-sm text-ink/50 dark:text-white/50">
         {membership.business.category === 'fnb' ? 'Food & Beverage' : 'Retail'}
       </span>
       {unredeemedCount > 0 && (
-        <span className="mt-1 text-sm text-primary">
+        <span className="mt-1 text-sm font-semibold text-primary">
           {unredeemedCount} unredeemed benefit{unredeemedCount > 1 ? 's' : ''}
         </span>
       )}
@@ -83,11 +85,11 @@ function StatusBadge({ status }: { status: string }) {
   const isActive = status === 'active';
   return (
     <span
-      className="rounded-md px-2 py-0.5 text-xs font-semibold"
-      style={{
-        backgroundColor: isActive ? '#e6f4ea' : '#fbe9e7',
-        color: isActive ? '#1e7e34' : '#c0392b',
-      }}
+      className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
+        isActive
+          ? 'bg-ink text-white dark:bg-white dark:text-ink'
+          : 'border-2 border-ink/30 text-ink/50 dark:border-white/30 dark:text-white/50'
+      }`}
     >
       {isActive ? 'Active' : 'Expired'}
     </span>

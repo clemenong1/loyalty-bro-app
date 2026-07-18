@@ -37,11 +37,11 @@ function LoginForm() {
       className="mx-auto flex min-h-screen max-w-sm flex-col justify-center gap-3 p-6"
       onSubmit={handleLogin}
     >
-      <h1 className="text-center text-3xl font-semibold">Loyalty Bro</h1>
-      <h2 className="mb-4 text-center text-lg font-semibold">Log in</h2>
+      <h1 className="text-center font-script text-6xl leading-tight text-primary">Loyalty Bro</h1>
+      <h2 className="mb-4 text-center font-display text-lg font-bold text-ink dark:text-white">Log in</h2>
 
       <input
-        className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
         placeholder="Email"
         type="email"
         required
@@ -50,7 +50,7 @@ function LoginForm() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
-        className="rounded-lg border border-gray-300 px-3 py-3 text-base placeholder:text-gray-400 dark:border-gray-700 dark:bg-transparent"
+        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
         placeholder="Password"
         type="password"
         required
@@ -58,18 +58,18 @@ function LoginForm() {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      {error ? <p className="text-sm text-red-600">{error}</p> : null}
+      {error ? <p className="text-sm font-medium text-primary">{error}</p> : null}
 
       <button
         type="submit"
-        className="mt-2 rounded-lg bg-primary py-3.5 font-semibold text-white disabled:opacity-60"
+        className="mt-2 rounded-full bg-primary py-3.5 font-display font-bold text-white shadow-md shadow-primary/30 transition hover:brightness-95 disabled:opacity-60"
         disabled={isSubmitting}
       >
         {isSubmitting ? 'Logging in…' : 'Log in'}
       </button>
 
-      <Link to="/signup" className="mt-4 self-center text-sm text-gray-500 dark:text-gray-400">
-        Don&apos;t have an account? Sign up
+      <Link to="/signup" className="mt-4 self-center text-sm text-ink/60 dark:text-white/60">
+        Don&apos;t have an account? <span className="font-semibold text-primary">Sign up</span>
       </Link>
     </form>
   );
