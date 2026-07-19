@@ -33,7 +33,7 @@ A PWA to keep track of every loyalty membership you've signed up for — retail,
 
 ## Deploy
 
-Deployed to Netlify. `netlify.toml` sets the build command (`npm run build`), publish directory (`dist`), and the SPA redirect so client-side routes resolve on refresh. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as environment variables in the Netlify site settings.
+Deployed to Vercel. `vercel.json` sets the build command (`npm run build`), output directory (`dist`), and the SPA rewrite so client-side routes resolve on refresh. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as environment variables in the Vercel project settings.
 
 ## Project structure
 
