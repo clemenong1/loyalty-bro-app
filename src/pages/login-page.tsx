@@ -38,6 +38,9 @@ function LoginForm() {
       onSubmit={handleLogin}
     >
       <h1 className="text-center font-script text-6xl leading-tight text-primary">Loyalty Bro</h1>
+      <p className="mb-2 text-center text-sm text-ink/60">
+        Track every loyalty perk you've signed up for, so none of them go to waste.
+      </p>
       <h2 className="mb-4 text-center font-display text-lg font-bold text-ink">Log in</h2>
 
       <input

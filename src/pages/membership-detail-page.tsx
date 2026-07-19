@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { InfoTooltip } from '@/components/info-tooltip';
 import { useMembershipQuery, useToggleBenefitRedeemed } from '@/hooks/use-memberships';
 import type { Tables } from '@/types/database';
 
@@ -35,7 +36,18 @@ export function MembershipDetailPage() {
         {membership.status === 'active' ? 'Active' : 'Expired'}
       </p>
 
-      <h2 className="mb-1 mt-4 font-display text-sm font-bold text-ink">Benefits</h2>
+      <h2 className="mb-1 mt-4 flex items-center font-display text-sm font-bold text-ink">
+        Benefits
+        <InfoTooltip label="What do these mean?">
+          <strong>Use now</strong> — redeemable anytime.
+          <br />
+          <strong>Next purchase</strong> — only valid on your next visit.
+          <br />
+          <strong>Points</strong> — earned toward a reward over time.
+          <br />
+          <strong>Tier</strong> — a status perk tied to your membership level.
+        </InfoTooltip>
+      </h2>
       {membership.benefits.length === 0 ? (
         <p className="text-ink/50">No benefits recorded.</p>
       ) : (

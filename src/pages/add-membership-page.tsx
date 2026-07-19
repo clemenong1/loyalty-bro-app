@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { InfoTooltip } from '@/components/info-tooltip';
 import { useBusinessSearch, useCreateMembership } from '@/hooks/use-memberships';
 import type { BenefitType, BusinessCategory, Tables } from '@/types/database';
 
@@ -108,7 +109,18 @@ export function AddMembershipPage() {
           ))}
         </div>
 
-        <span className="mt-2 font-display text-sm font-bold text-ink">Benefit</span>
+        <span className="mt-2 flex items-center font-display text-sm font-bold text-ink">
+          Benefit
+          <InfoTooltip label="What do these mean?">
+            <strong>Use now</strong> — redeemable anytime.
+            <br />
+            <strong>Next purchase</strong> — only valid on your next visit.
+            <br />
+            <strong>Points</strong> — earned toward a reward over time.
+            <br />
+            <strong>Tier</strong> — a status perk tied to your membership level.
+          </InfoTooltip>
+        </span>
         <div className="flex flex-wrap gap-2">
           {BENEFIT_TYPES.map((b) => (
             <Pill
