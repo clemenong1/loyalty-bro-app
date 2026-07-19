@@ -8,7 +8,7 @@ export function AuthOnlyRoute({ children }: PropsWithChildren) {
   const { session, isLoading } = useAuth();
 
   if (isLoading) {
-    return <div className="h-screen bg-white dark:bg-black" />;
+    return <div className="h-screen bg-cream" />;
   }
 
   if (session) {

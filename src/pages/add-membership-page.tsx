@@ -64,9 +64,9 @@ export function AddMembershipPage() {
       <h1 className="mb-4 font-script text-4xl text-primary">Add membership</h1>
 
       <div className="flex flex-col gap-2">
-        <span className="font-display text-sm font-bold text-ink dark:text-white">Business name</span>
+        <span className="font-display text-sm font-bold text-ink">Business name</span>
         <input
-          className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
+          className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none"
           placeholder="e.g. Blue Bottle Coffee"
           value={businessName}
           onChange={(e) => {
@@ -75,7 +75,7 @@ export function AddMembershipPage() {
           }}
         />
         {!selectedBusiness && suggestions && suggestions.length > 0 && (
-          <div className="rounded-xl border-2 border-ink/10 dark:border-white/15">
+          <div className="rounded-xl border-2 border-ink/10">
             {suggestions.map((b) => (
               <button
                 key={b.id}
@@ -88,7 +88,7 @@ export function AddMembershipPage() {
                 }}
               >
                 <span>{b.name}</span>
-                <span className="text-sm text-ink/50 dark:text-white/50">
+                <span className="text-sm text-ink/50">
                   {b.category === 'fnb' ? 'F&B' : 'Retail'}
                 </span>
               </button>
@@ -96,7 +96,7 @@ export function AddMembershipPage() {
           </div>
         )}
 
-        <span className="mt-2 font-display text-sm font-bold text-ink dark:text-white">Category</span>
+        <span className="mt-2 font-display text-sm font-bold text-ink">Category</span>
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((c) => (
             <Pill
@@ -108,7 +108,7 @@ export function AddMembershipPage() {
           ))}
         </div>
 
-        <span className="mt-2 font-display text-sm font-bold text-ink dark:text-white">Benefit</span>
+        <span className="mt-2 font-display text-sm font-bold text-ink">Benefit</span>
         <div className="flex flex-wrap gap-2">
           {BENEFIT_TYPES.map((b) => (
             <Pill
@@ -121,7 +121,7 @@ export function AddMembershipPage() {
         </div>
 
         <input
-          className="mt-2 rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
+          className="mt-2 rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none"
           placeholder="e.g. 10% off next purchase"
           value={benefitDescription}
           onChange={(e) => setBenefitDescription(e.target.value)}
@@ -129,11 +129,11 @@ export function AddMembershipPage() {
 
         {benefitType === 'next_purchase' && (
           <>
-            <span className="mt-2 font-display text-sm font-bold text-ink dark:text-white">
+            <span className="mt-2 font-display text-sm font-bold text-ink">
               Redeemable by (optional)
             </span>
             <input
-              className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
+              className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none"
               placeholder="YYYY-MM-DD"
               value={redeemableBy}
               onChange={(e) => setRedeemableBy(e.target.value)}
@@ -160,7 +160,7 @@ function Pill({ label, selected, onClick }: { label: string; selected: boolean; 
     <button
       type="button"
       className={`rounded-full px-4 py-2 text-sm font-bold transition ${
-        selected ? 'bg-primary text-white' : 'bg-ink text-white dark:bg-white/10'
+        selected ? 'bg-primary text-white' : 'bg-ink text-white'
       }`}
       onClick={onClick}
     >

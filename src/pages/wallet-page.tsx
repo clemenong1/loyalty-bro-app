@@ -21,7 +21,7 @@ export function WalletPage() {
         <h1 className="font-script text-4xl text-primary">Wallet</h1>
         <div className="flex items-center gap-4">
           <button
-            className="text-sm font-semibold text-ink/60 disabled:opacity-50 dark:text-white/60"
+            className="text-sm font-semibold text-ink/60 disabled:opacity-50"
             onClick={() => refetch()}
             disabled={isRefetching}
           >
@@ -34,7 +34,7 @@ export function WalletPage() {
       </div>
 
       <input
-        className="mb-4 w-full rounded-xl border-2 border-ink/15 px-3 py-2.5 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
+        className="mb-4 w-full rounded-xl border-2 border-ink/15 px-3 py-2.5 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none"
         placeholder="Search your memberships..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
@@ -43,7 +43,7 @@ export function WalletPage() {
 
       <div className="flex flex-col gap-3 pb-6">
         {!isLoading && filtered.length === 0 && (
-          <p className="mt-12 text-center text-ink/50 dark:text-white/50">
+          <p className="mt-12 text-center text-ink/50">
             No memberships yet. Add one from the Add tab.
           </p>
         )}
@@ -61,15 +61,15 @@ function MembershipCard({ membership }: { membership: MembershipWithDetails }) {
   return (
     <Link
       to={`/membership/${membership.id}`}
-      className="flex flex-col gap-1 rounded-2xl border-2 border-ink/10 p-4 transition hover:border-primary/40 dark:border-white/15 dark:hover:border-primary/50"
+      className="flex flex-col gap-1 rounded-2xl border-2 border-ink/10 p-4 transition hover:border-primary/40"
     >
       <div className="flex items-center justify-between">
-        <span className="font-display text-sm font-bold text-ink dark:text-white">
+        <span className="font-display text-sm font-bold text-ink">
           {membership.business.name}
         </span>
         <StatusBadge status={membership.status} />
       </div>
-      <span className="text-sm text-ink/50 dark:text-white/50">
+      <span className="text-sm text-ink/50">
         {membership.business.category === 'fnb' ? 'Food & Beverage' : 'Retail'}
       </span>
       {unredeemedCount > 0 && (
@@ -86,9 +86,7 @@ function StatusBadge({ status }: { status: string }) {
   return (
     <span
       className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
-        isActive
-          ? 'bg-ink text-white dark:bg-white dark:text-ink'
-          : 'border-2 border-ink/30 text-ink/50 dark:border-white/30 dark:text-white/50'
+        isActive ? 'bg-ink text-white' : 'border-2 border-ink/30 text-ink/50'
       }`}
     >
       {isActive ? 'Active' : 'Expired'}

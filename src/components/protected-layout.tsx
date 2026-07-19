@@ -7,7 +7,7 @@ export function ProtectedLayout() {
   const { session, isLoading } = useAuth();
 
   if (isLoading) {
-    return <div className="h-screen bg-white dark:bg-black" />;
+    return <div className="h-screen bg-cream" />;
   }
 
   if (!session) {
@@ -15,7 +15,7 @@ export function ProtectedLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-white pb-16 text-black dark:bg-black dark:text-white">
+    <div className="min-h-screen bg-cream pb-16 text-ink">
       <Outlet />
       <BottomNav />
     </div>

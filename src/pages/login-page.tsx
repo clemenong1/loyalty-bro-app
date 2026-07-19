@@ -38,10 +38,10 @@ function LoginForm() {
       onSubmit={handleLogin}
     >
       <h1 className="text-center font-script text-6xl leading-tight text-primary">Loyalty Bro</h1>
-      <h2 className="mb-4 text-center font-display text-lg font-bold text-ink dark:text-white">Log in</h2>
+      <h2 className="mb-4 text-center font-display text-lg font-bold text-ink">Log in</h2>
 
       <input
-        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
+        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none"
         placeholder="Email"
         type="email"
         required
@@ -50,7 +50,7 @@ function LoginForm() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
-        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none dark:border-white/20 dark:bg-transparent dark:text-white dark:placeholder:text-white/40"
+        className="rounded-xl border-2 border-ink/15 px-3 py-3 text-base placeholder:text-ink/40 focus:border-primary focus:outline-none"
         placeholder="Password"
         type="password"
         required
@@ -68,7 +68,7 @@ function LoginForm() {
         {isSubmitting ? 'Logging in…' : 'Log in'}
       </button>
 
-      <Link to="/signup" className="mt-4 self-center text-sm text-ink/60 dark:text-white/60">
+      <Link to="/signup" className="mt-4 self-center text-sm text-ink/60">
         Don&apos;t have an account? <span className="font-semibold text-primary">Sign up</span>
       </Link>
     </form>
